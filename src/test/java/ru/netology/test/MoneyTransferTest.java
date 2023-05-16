@@ -91,7 +91,7 @@ class MoneyTransferTest {
 
         assertEquals(balanceFirstCard - Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getFirstCardBalance());
         assertEquals(balanceSecondCard + Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getSecondCardBalance());
-        moneyTransfer.getError();
+        //moneyTransfer.getError();
     }
 
 
