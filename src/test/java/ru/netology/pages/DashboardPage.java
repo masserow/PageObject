@@ -30,10 +30,10 @@ public class DashboardPage {
 
     public int getFirstCardBalance() {
         val text = card1.text();
-        return extractBalanceFirstCard(text);
+        return extractBalanceCard(text);
     }
 
-    private int extractBalanceFirstCard(String text) {
+    private int extractBalanceCard(String text) {
         val start = text.indexOf(balanceStart);
         val finish = text.indexOf(balanceFinish);
         val value = text.substring(start + balanceStart.length(), finish);
@@ -42,15 +42,10 @@ public class DashboardPage {
 
     public int getSecondCardBalance() {
         val text = card2.text();
-        return extractBalanceSecondCard(text);
+        return extractBalanceCard(text);
     }
 
-    private int extractBalanceSecondCard(String text) {
-        val start = text.indexOf(balanceStart);
-        val finish = text.indexOf(balanceFinish);
-        val value = text.substring(start + balanceStart.length(), finish);
-        return Integer.parseInt(value);
-    }
+
 
 
 }

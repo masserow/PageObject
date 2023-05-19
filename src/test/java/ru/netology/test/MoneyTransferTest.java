@@ -72,10 +72,12 @@ class MoneyTransferTest {
         val infoCard = DataHelper.getFirstCardNumber();
         moneyTransfer.transferForm(Integer.parseInt(String.valueOf(refillMoney)), infoCard);
 
-        assertEquals(balanceFirstCard - Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getFirstCardBalance());
-        assertEquals(balanceSecondCard + Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getSecondCardBalance());
-        //При переводе 0 рублей система не предлагает сумму минимального платежа - баг!
+        moneyTransfer.getError();
+
+
     }
+
+
     @Test
     void testInvalidTransaction() {
         val dashboardPage = new DashboardPage();
@@ -87,11 +89,11 @@ class MoneyTransferTest {
         val infoCard = DataHelper.getFirstCardNumber();
         moneyTransfer.transferForm(Integer.parseInt(String.valueOf(refillMoney)), infoCard);
 
-        assertEquals(balanceFirstCard - Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getFirstCardBalance());
-        assertEquals(balanceSecondCard + Integer.parseInt(String.valueOf(refillMoney)), dashboardPage.getSecondCardBalance());
-        //moneyTransfer.getError();
-        //При переводе суммы большей, чем остаток средств на карте списания,
-        // транзакция производится, сообщения об ошибке нет - баг!
+        moneyTransfer.getError();
+
+
     }
+
+
 
 }

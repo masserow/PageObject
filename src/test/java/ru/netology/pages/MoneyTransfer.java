@@ -1,10 +1,13 @@
 package ru.netology.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import ru.netology.data.DataHelper;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MoneyTransfer {
@@ -30,8 +33,9 @@ public class MoneyTransfer {
     }
 
 
-    public SelenideElement getError() {
-        return error.shouldBe(Condition.visible);
+    public void getError() {
+        error.shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(text("Ошибка!"));
     }
 
     public DashboardPage cancelButton() {
